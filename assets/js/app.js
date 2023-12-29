@@ -64,6 +64,32 @@ async function getPosts(){
                 </div>
                 <h3 class="dialog-title">${post.title}</h3>
                 <p class="dialog-body">${post.body}</p>
+                <hr>
+                <h2 class="comments">#Comments</h2>
+                <div class="commentDiv">
+                    <div class="user-container">
+                        <img class="user-image" src="https://picsum.photos/40/40?random=1">
+                        <span class="user-email">Eliseo@gardner.biz</span>
+                    </div>
+                    <div class="comments-container"> 
+                        <h3 class="comments-name">id labore ex et quam laborum</h3>
+                        <span class="comments-body">
+                            laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium
+                        </span>
+                    </div>
+                </div>
+                <div class="commentDiv">
+                <div class="user-container">
+                    <img class="user-image" src="https://picsum.photos/40/40?random=1">
+                    <span class="user-email">Eliseo@gardner.biz</span>
+                </div>
+                <div class="comments-container"> 
+                    <h3 class="comments-name">id labore ex et quam laborum</h3>
+                    <span class="comments-body">
+                        laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium
+                    </span>
+                </div>
+            </div>
             </dialog>
             <div class="buttonDiv">
                 <button class="see-inside-btn">İçeriği Gör</button>

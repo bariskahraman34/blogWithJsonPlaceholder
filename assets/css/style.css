@@ -98,10 +98,12 @@ dialog{
     border: none;
     border-radius: 10px;
     overflow: visible;
+    overflow-y: scroll;
+    height: 500px;
 }
 .dialog-body,
 .dialog-title{
-    padding: 2rem;
+    padding: 1rem 2rem 1rem 2rem;
 }
 
 .close-btn{
@@ -112,9 +114,8 @@ dialog{
     color: white;
     border-radius: 50%;
     transition: background-color .3s ease;
-    position: absolute;
-    right: -7px;
-    top: -10px;
+    position: sticky;
+    top: 0px;
 }
 
 .close-btn:hover{
@@ -178,4 +179,48 @@ dialog{
     color: #fff;
     background-image: linear-gradient(#ff4568,#ff4568);
     background-repeat: no-repeat;
+}
+
+.comments{
+    padding: 1rem 1rem 1rem 2rem;
+}
+
+.user-container{
+    display: flex;
+    align-items: center;
+    padding: 1rem 1rem 1rem 0rem;
+}
+
+.user-image{
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 3px solid #0d1117;
+}
+.user-email{
+    font-size: 18px;
+    font-weight: bold;
+}
+.comments-container,
+.user-container{
+    padding-left: 2rem;
+    padding-bottom: 2rem;
+}
+
+.comments-name{
+    margin-bottom: 10px;
+}
+.commentDiv{
+    margin: 2rem;
+}
+
+.commentDiv:nth-child(odd){
+    background-color: #0d1117;
+    color: white;
+    border: 3px solid #e6ad1e;
+    border-radius: 10px;
+}
+.commentDiv:nth-child(even){
+    background-color: #0f2c2c;
+    color: white;
+    border-radius: 10px;
 }
