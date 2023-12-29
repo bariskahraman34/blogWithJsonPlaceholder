@@ -15,19 +15,13 @@ let itemsPerPage = 9;
 
 async function pagination(){
     const data = await fetchPosts();
-    paginationUl.innerHTML += 
-    `
-    <button id="prevBtn"> 
-        <i class="fa-solid fa-chevron-left"></i> 
-    </button>
-    `
+
     for(let i = 0 ; i < Math.ceil(data.length/9) ; i++){
         paginationUl.innerHTML += 
         `
         <li id="pagination-${i}" class="paginationLi">${i+1}</li>
         `
     }
-    paginationUl.innerHTML += `<button id="nextBtn"><i class="fa-solid fa-chevron-right"></i></button>`
 
     paginationUl.children[1].classList.add('active');
     bindPaginationLi();
