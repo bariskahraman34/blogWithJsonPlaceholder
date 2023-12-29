@@ -19,6 +19,7 @@
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 50px;
+    align-items: center;
 }
 .input-container{
     text-align: end;
@@ -83,7 +84,8 @@ dialog{
     border-radius: 10px;
     overflow: visible;
 }
-.blog-content{
+.dialog-body,
+.dialog-title{
     padding: 2rem;
 }
 
@@ -107,4 +109,13 @@ dialog{
 ::backdrop{
     background-color: #313942;
     opacity: .75;
+}
+
+.dialog-img-container{
+    text-align: center;
+    padding: .5rem;
+}
+
+.dialog-img-container > img{
+    border-radius: 10px;
 }
