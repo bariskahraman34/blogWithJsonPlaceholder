@@ -114,34 +114,6 @@ async function getPosts(){
     bindCloseBtns();
 }
 
-// async function getComments(){
-//     const comments = await fetchComments();
-//     const posts = await fetchPosts();
-//     console.log(posts);
-//     const commentsDiv = document.querySelector('.comments');
-//     for (let i = 0 ; i < posts.length ; i++ ) {
-//         for(let j = 0 ; j < comments.length ; j++){
-//             if(posts[i].id == comments[j].postId){
-//                 commentsDiv.innerHTML += 
-//                 `
-                // <div class="commentDiv">
-                //     <div class="user-container">
-                //         <img class="user-image" src="https://picsum.photos/40/40?random=1">
-                //         <span class="user-email">${comments[j].email}</span>
-                //     </div>
-                //     <div class="comments-container"> 
-                //         <h3 class="comments-name">${comments[j].name}</h3>
-                //         <span class="comments-body">
-                //         ${comments[j].body}
-                //         </span>
-                //     </div>
-                // </div>
-//                 `
-//             }
-//         }
-//     }
-// }
-
 function bindShowBtns(){
     const showBtns = document.querySelectorAll('.see-inside-btn');
     const dialogs = document.querySelectorAll('dialog');
