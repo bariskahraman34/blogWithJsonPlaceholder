@@ -1,22 +1,57 @@
 const searchInput = document.querySelector('.search-input');
 const cardItems = document.querySelector('.card-items');
 const container = document.querySelector('.container');
+const paginationUl = document.querySelector('.paginationUl')
 
 
 async function fetchPosts(){
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts?limit=20');
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts');
     const data = await response.json();
-    console.log(data)
-    console.log(response)
     return data
 }
 
+let currentPage = 1;
+let itemsPerPage = 9;
 
+async function pagination(){
+    const data = await fetchPosts();
+    paginationUl.innerHTML += 
+    `
+    <button id="prevBtn"> 
+        <i class="fa-solid fa-chevron-left"></i> 
+    </button>
+    `
+    for(let i = 0 ; i < Math.ceil(data.length/9) ; i++){
+        paginationUl.innerHTML += 
+        `
+        <li id="pagination-${i}" class="paginationLi">${i+1}</li>
+        `
+    }
+    paginationUl.innerHTML += `<button id="nextBtn"><i class="fa-solid fa-chevron-right"></i></button>`
+
+    paginationUl.children[1].classList.add('active');
+    bindPaginationLi();
+}
+
+function bindPaginationLi(){
+    const paginationLiElements = document.querySelectorAll('.paginationLi');
+    for (const paginationLi of paginationLiElements) {
+        paginationLi.addEventListener('click',() => {
+            const removeActive = document.querySelectorAll('.paginationLi');
+            for(let i = 0 ; i < removeActive.length ; i++){
+                removeActive[i].classList.remove('active');
+            }
+            paginationLi.classList.add('active');
+            currentPage = Number(paginationLi.innerHTML);
+            getPosts();
+        })
+    }
+}
+let counter = 0;
 async function getPosts(){
-    let counter = 0;
     const data = await fetchPosts();
     cardItems.innerHTML = "";
-    for (const post of data.slice(0,20)) {
+    for (const post of data.slice((currentPage-1)*itemsPerPage,(currentPage-1)*itemsPerPage+itemsPerPage)) {
         cardItems.innerHTML +=
         `
         <div class="card-container">
@@ -81,7 +116,5 @@ function bindCloseBtns(){
         })
     }
 }
-
-
-
+pagination()
 getPosts()

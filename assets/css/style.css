@@ -133,3 +133,48 @@ dialog{
 .dialog-img-container > img{
     border-radius: 10px;
 }
+
+.paginationUl{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    background-color: #fff;
+    color: #383838;
+    padding: 10px 40px;
+    border-radius: 6px;
+}
+.paginationUl > li{
+    display: inline-block;
+    margin: 0 10px;
+    background-color: #ccc;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 45px;
+    cursor: pointer;
+}
+
+#prevBtn,
+#nextBtn{
+    display: inline-flex;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 500;
+    color: #383838;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    margin: 0px 10px 0px 10px;
+}
+
+.paginationUl > li.active{
+    color: #fff;
+    background-image: linear-gradient(#ff4568,#ff4568);
+    background-repeat: no-repeat;
+}
