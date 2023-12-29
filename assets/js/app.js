@@ -91,10 +91,6 @@ function bindShowBtns(){
     for (let i = 0 ; i < showBtns.length ; i++) {
         showBtns[i].addEventListener('click',(e) => {
             e.preventDefault();
-            dialogs[i].style.top = `${e.clientY / (container.clientHeight - window.innerHeight) * 100}%`
-            console.log("e.clientY:", e.clientY);
-            console.log("window.innerHeight:",window.innerHeight)
-            console.log((e.clientY/window.innerHeight)*container.clientHeight)
             dialogs[i].showModal();
         })
     }
