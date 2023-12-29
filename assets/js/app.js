@@ -1,13 +1,13 @@
 const searchInput = document.querySelector('.search-input');
 const cardItems = document.querySelector('.card-items');
 const container = document.querySelector('.container');
-const paginationUl = document.querySelector('.paginationUl')
+const paginationUl = document.querySelector('.paginationUl');
 
 
 async function fetchPosts(){
     const response = await fetch('https://jsonplaceholder.typicode.com/posts');
     const data = await response.json();
-    return data
+    return data;
 }
 
 let currentPage = 1;
@@ -15,15 +15,13 @@ let itemsPerPage = 9;
 
 async function pagination(){
     const data = await fetchPosts();
-
     for(let i = 0 ; i < Math.ceil(data.length/9) ; i++){
         paginationUl.innerHTML += 
         `
         <li id="pagination-${i}" class="paginationLi">${i+1}</li>
         `
     }
-
-    paginationUl.children[1].classList.add('active');
+    paginationUl.children[0].classList.add('active');
     bindPaginationLi();
 }
 
@@ -31,9 +29,8 @@ function bindPaginationLi(){
     const paginationLiElements = document.querySelectorAll('.paginationLi');
     for (const paginationLi of paginationLiElements) {
         paginationLi.addEventListener('click',() => {
-            const removeActive = document.querySelectorAll('.paginationLi');
-            for(let i = 0 ; i < removeActive.length ; i++){
-                removeActive[i].classList.remove('active');
+            for(let i = 0 ; i < paginationLiElements.length ; i++){
+                paginationLiElements[i].classList.remove('active');
             }
             paginationLi.classList.add('active');
             currentPage = Number(paginationLi.innerHTML);
@@ -41,11 +38,14 @@ function bindPaginationLi(){
         })
     }
 }
+
+
+
 let counter = 0;
 async function getPosts(){
-    const data = await fetchPosts();
+    const posts = await fetchPosts();
     cardItems.innerHTML = "";
-    for (const post of data.slice((currentPage-1)*itemsPerPage,(currentPage-1)*itemsPerPage+itemsPerPage)) {
+    for (const post of posts.slice((currentPage-1)*itemsPerPage,(currentPage-1)*itemsPerPage+itemsPerPage)) {
         cardItems.innerHTML +=
         `
         <div class="card-container">
@@ -89,7 +89,8 @@ function bindShowBtns(){
         })
     }
     for(let i = 0 ; i < imgContainer.length ; i++){
-        imgContainer[i].addEventListener('click', () => {
+        imgContainer[i].addEventListener('click', (e) => {
+            e.preventDefault();
             dialogs[i].showModal();
         })
     }
@@ -106,5 +107,6 @@ function bindCloseBtns(){
         })
     }
 }
-pagination()
-getPosts()
+
+pagination();
+getPosts();
