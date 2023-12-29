@@ -100,6 +100,8 @@ dialog{
     overflow: visible;
     overflow-y: scroll;
     height: 500px;
+    background-color: #0d1117;
+    color: white;
 }
 .dialog-body,
 .dialog-title{
@@ -223,4 +225,14 @@ dialog{
     background-color: #0f2c2c;
     color: white;
     border-radius: 10px;
+}
+
+::-webkit-scrollbar{
+    width: 15px;
+    background-color: rgb(204, 204, 204);
+    border-radius: 20px;
+}
+::-webkit-scrollbar-thumb{
+    background: linear-gradient(#ff4568,#ff4568);
+    border-radius: 20px;
 }
