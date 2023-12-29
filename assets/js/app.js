@@ -10,6 +10,12 @@ async function fetchPosts(){
     return data;
 }
 
+async function fetchComments(){
+    const response = await fetch('https://jsonplaceholder.typicode.com/comments');
+    const data = await response.json();
+    return data;
+} 
+
 let currentPage = 1;
 let itemsPerPage = 9;
 
@@ -24,6 +30,8 @@ async function pagination(){
     paginationUl.children[0].classList.add('active');
     bindPaginationLi();
 }
+
+
 
 function bindPaginationLi(){
     const paginationLiElements = document.querySelectorAll('.paginationLi');
@@ -44,6 +52,8 @@ function bindPaginationLi(){
 let counter = 0;
 async function getPosts(){
     const posts = await fetchPosts();
+    const comments = await fetchComments();
+    let commentDivCounter = 0;
     cardItems.innerHTML = "";
     for (const post of posts.slice((currentPage-1)*itemsPerPage,(currentPage-1)*itemsPerPage+itemsPerPage)) {
         cardItems.innerHTML +=
@@ -65,31 +75,10 @@ async function getPosts(){
                 <h3 class="dialog-title">${post.title}</h3>
                 <p class="dialog-body">${post.body}</p>
                 <hr>
-                <h2 class="comments">#Comments</h2>
-                <div class="commentDiv">
-                    <div class="user-container">
-                        <img class="user-image" src="https://picsum.photos/40/40?random=1">
-                        <span class="user-email">Eliseo@gardner.biz</span>
-                    </div>
-                    <div class="comments-container"> 
-                        <h3 class="comments-name">id labore ex et quam laborum</h3>
-                        <span class="comments-body">
-                            laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium
-                        </span>
-                    </div>
+                <h2 class="comments-heading">#Comments</h2>
+                <div class="comments" id="comment-${commentDivCounter}">
+
                 </div>
-                <div class="commentDiv">
-                <div class="user-container">
-                    <img class="user-image" src="https://picsum.photos/40/40?random=1">
-                    <span class="user-email">Eliseo@gardner.biz</span>
-                </div>
-                <div class="comments-container"> 
-                    <h3 class="comments-name">id labore ex et quam laborum</h3>
-                    <span class="comments-body">
-                        laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium
-                    </span>
-                </div>
-            </div>
             </dialog>
             <div class="buttonDiv">
                 <button class="see-inside-btn">İçeriği Gör</button>
@@ -97,11 +86,61 @@ async function getPosts(){
         </div>
         `
         counter++;
+        let commentImageCounter = 0;
+        for(const comment of comments){
+            const comments = document.querySelector(`#comment-${commentDivCounter}`);
+            if(post.id == comment.postId){
+                comments.innerHTML += 
+                `
+                <div class="commentDiv">
+                    <div class="user-container">
+                        <img class="user-image" src="https://picsum.photos/40/40?random=${commentImageCounter}">
+                        <span class="user-email">${comment.email}</span>
+                    </div>
+                    <div class="comments-container"> 
+                        <h3 class="comments-name">${comment.name}</h3>
+                        <span class="comments-body">
+                        ${comment.body}
+                        </span>
+                    </div>
+                </div>
+                `
+            }
+            commentImageCounter++;
+        }
+        commentDivCounter++;
     }
     bindShowBtns();
     bindCloseBtns();
 }
 
+// async function getComments(){
+//     const comments = await fetchComments();
+//     const posts = await fetchPosts();
+//     console.log(posts);
+//     const commentsDiv = document.querySelector('.comments');
+//     for (let i = 0 ; i < posts.length ; i++ ) {
+//         for(let j = 0 ; j < comments.length ; j++){
+//             if(posts[i].id == comments[j].postId){
+//                 commentsDiv.innerHTML += 
+//                 `
+                // <div class="commentDiv">
+                //     <div class="user-container">
+                //         <img class="user-image" src="https://picsum.photos/40/40?random=1">
+                //         <span class="user-email">${comments[j].email}</span>
+                //     </div>
+                //     <div class="comments-container"> 
+                //         <h3 class="comments-name">${comments[j].name}</h3>
+                //         <span class="comments-body">
+                //         ${comments[j].body}
+                //         </span>
+                //     </div>
+                // </div>
+//                 `
+//             }
+//         }
+//     }
+// }
 
 function bindShowBtns(){
     const showBtns = document.querySelectorAll('.see-inside-btn');
@@ -133,6 +172,5 @@ function bindCloseBtns(){
         })
     }
 }
-
 pagination();
 getPosts();
