@@ -90,38 +90,47 @@
     background-color: #313942;
 }
 dialog{
-    width: auto;
+    width: 900px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border: none;
     border-radius: 10px;
-    overflow: visible;
-    overflow-y: scroll;
-    height: 500px;
     background-color: #0d1117;
     color: white;
+    overflow: visible;
+}
+.dialog-container{
+    height: 500px;
+    overflow: auto;
 }
 .dialog-body,
 .dialog-title{
     padding: 1rem 2rem 1rem 2rem;
 }
+.dialog-title{
+    font-size: 26px;
+}
+.dialog-body{
+    font-size: 20px;
+}
 
 .close-btn{
     margin:2px 2px 0px 0px ;
-    background-color:rgb(30, 48, 80);
+    background-color:#ff4568;
     border: none;
     cursor: pointer;
     color: white;
     border-radius: 50%;
     transition: background-color .3s ease;
-    position: sticky;
-    top: 0px;
+    position: absolute;
+    top: -10px;
+    left: -6px;
 }
 
 .close-btn:hover{
-    background-color: #e03131;
+    background-color: #b51822;
 }
 
 ::backdrop{

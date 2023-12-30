@@ -66,18 +66,20 @@ async function getPosts(){
                 <h3 class="h3-name">${post.title}</h3>
             </div>
             <dialog class="dialog">
-                <button class="close-btn">
-                    <i class="fa-regular fa-circle-xmark fa-2x"></i>
-                </button>
-                <div class="dialog-img-container">
-                    <img src="https://picsum.photos/380/200?random=${counter}">
-                </div>
-                <h3 class="dialog-title">${post.title}</h3>
-                <p class="dialog-body">${post.body}</p>
-                <hr>
-                <h2 class="comments-heading">#Comments</h2>
-                <div class="comments" id="comment-${commentDivCounter}">
+                <div class="dialog-container">
+                    <button class="close-btn">
+                        <i class="fa-regular fa-circle-xmark fa-2x"></i>
+                    </button>
+                    <div class="dialog-img-container">
+                        <img src="https://picsum.photos/380/200?random=${counter}">
+                    </div>
+                    <h3 class="dialog-title">${post.title}</h3>
+                    <p class="dialog-body">${post.body}</p>
+                    <hr>
+                    <h2 class="comments-heading">#Comments</h2>
+                    <div class="comments" id="comment-${commentDivCounter}">
 
+                    </div>
                 </div>
             </dialog>
             <div class="buttonDiv">
