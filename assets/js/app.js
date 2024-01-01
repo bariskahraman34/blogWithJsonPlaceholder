@@ -43,11 +43,6 @@ function bindPaginationLi(){
             }
             paginationLi.classList.add('active');
             currentPage = Number(paginationLi.innerHTML);
-            if(currentPage == 1){
-                counter = 0;
-            }else{
-                counter = (currentPage - 1)*itemsPerPage;
-            }
             searchInput.value = "";
             getPosts();
         })
@@ -126,40 +121,28 @@ async function getPosts(){
                 `
                 <img src="${picture.download_url}" width="850" height="400">
                 `
-                console.log(picture.id , post.id);
-                
             }
         }
         commentDivCounter++;
     }
-    bindShowBtns();
-    bindCloseBtns();
+    bindShowAndCloseBtns();
 }
 
-function bindShowBtns(){
+function bindShowAndCloseBtns(){
     const showBtns = document.querySelectorAll('.see-inside-btn');
     const dialogs = document.querySelectorAll('dialog');
     const imgContainer = document.querySelectorAll('.img-container');
+    const closeBtns = document.querySelectorAll('dialog button');
 
     for (let i = 0 ; i < showBtns.length ; i++) {
         showBtns[i].addEventListener('click',(e) => {
             e.preventDefault();
             dialogs[i].showModal();
         })
-    }
-    for(let i = 0 ; i < imgContainer.length ; i++){
         imgContainer[i].addEventListener('click', (e) => {
             e.preventDefault();
             dialogs[i].showModal();
         })
-    }
-
-}
-
-function bindCloseBtns(){
-    const closeBtns = document.querySelectorAll('dialog button');
-    const dialogs = document.querySelectorAll('dialog');
-    for (let i = 0 ; i < closeBtns.length ; i++) {
         closeBtns[i].addEventListener('click',(e) => {
             e.preventDefault();
             dialogs[i].close();
