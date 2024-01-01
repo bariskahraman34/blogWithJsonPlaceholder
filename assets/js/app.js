@@ -1,4 +1,3 @@
-const searchInput = document.querySelector('.search-input');
 const cardItems = document.querySelector('.card-items');
 const container = document.querySelector('.container');
 const paginationUl = document.querySelector('.paginationUl');
