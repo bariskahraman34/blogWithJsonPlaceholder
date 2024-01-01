@@ -2,7 +2,6 @@ const cardItems = document.querySelector('.card-items');
 const container = document.querySelector('.container');
 const paginationUl = document.querySelector('.paginationUl');
 
-
 async function fetchPosts(){
     const response = await fetch('https://jsonplaceholder.typicode.com/posts');
     const data = await response.json();
@@ -41,6 +40,7 @@ function bindPaginationLi(){
             }
             paginationLi.classList.add('active');
             currentPage = Number(paginationLi.innerHTML);
+            searchInput.value = "";
             getPosts();
         })
     }
