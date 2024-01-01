@@ -70,7 +70,7 @@ async function getPosts(){
                         <i class="fa-regular fa-circle-xmark fa-2x"></i>
                     </button>
                     <div class="dialog-img-container" id="dialogImgContainer-${commentDivCounter}">
-                        <img src="https://picsum.photos/seed/picsum/380/200">
+                        <img src="https://picsum.photos/seed/picsum/850/400">
                     </div>
                     <h3 class="dialog-title">${post.title}</h3>
                     <p class="dialog-body">${post.body}</p>
