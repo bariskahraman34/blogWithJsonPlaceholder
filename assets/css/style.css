@@ -205,16 +205,18 @@ dialog{
 .user-image{
     border-radius: 50%;
     margin-right: 10px;
-    border: 3px solid #0d1117;
+    border: 3px solid white;
 }
 .user-email{
     font-size: 18px;
     font-weight: bold;
 }
-.comments-container,
+.comments-container{
+    padding: 2rem 2rem 2rem 2rem;
+}
+
 .user-container{
-    padding-left: 2rem;
-    padding-bottom: 2rem;
+    padding: 2rem 2rem 0rem 2rem;
 }
 
 .comments-name{
@@ -234,6 +236,10 @@ dialog{
     background-color: #0f2c2c;
     color: white;
     border-radius: 10px;
+}
+
+.comments{
+    padding: 0rem 6rem 0rem 6rem;
 }
 
 ::-webkit-scrollbar{
