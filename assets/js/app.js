@@ -53,7 +53,6 @@ function bindPaginationLi(){
         })
     }
 }
-let counter = 0;
 async function getPosts(){
     const posts = await fetchPosts();
     const comments = await fetchComments();
@@ -65,7 +64,7 @@ async function getPosts(){
         `
         <div class="card-container">
             <div class="img-container" id="imgContainer-${commentDivCounter}">
-                
+                <img src="https://picsum.photos/seed/picsum/380/200">
             </div>
             <div class="blog-name">
                 <h3 class="h3-name">${post.title}</h3>
@@ -76,7 +75,7 @@ async function getPosts(){
                         <i class="fa-regular fa-circle-xmark fa-2x"></i>
                     </button>
                     <div class="dialog-img-container" id="dialogImgContainer-${commentDivCounter}">
-                        
+                        <img src="https://picsum.photos/seed/picsum/380/200">
                     </div>
                     <h3 class="dialog-title">${post.title}</h3>
                     <p class="dialog-body">${post.body}</p>
@@ -92,7 +91,6 @@ async function getPosts(){
             </div>
         </div>
         `
-        counter ++;
         let commentImageCounter = 0;
         for(const comment of comments){
             const comments = document.querySelector(`#comment-${commentDivCounter}`);
@@ -120,14 +118,16 @@ async function getPosts(){
             const imgContainer = document.querySelector(`#imgContainer-${commentDivCounter}`);
             const dialogImgContainer = document.querySelector(`#dialogImgContainer-${commentDivCounter}`);
             if(post.id == picture.id){
-                imgContainer.innerHTML += 
+                imgContainer.innerHTML = 
                 `
                 <img src="${picture.download_url}" width="380" height="200">
                 `
-                dialogImgContainer.innerHTML +=
+                dialogImgContainer.innerHTML =
                 `
-                <img src="${picture.download_url}" width="380" height="200">
+                <img src="${picture.download_url}" width="850" height="400">
                 `
+                console.log(picture.id , post.id);
+                
             }
         }
         commentDivCounter++;
