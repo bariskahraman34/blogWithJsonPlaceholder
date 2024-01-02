@@ -45,21 +45,33 @@
     flex-direction: column;
     justify-content: space-between;
     background-color: white;
+    border: 3px solid black;
+    border-radius: 15px;
 }
 
 .card-container > div{
     margin-bottom: 10px;
 }
 
+.buttonDiv{
+    margin: 0px !important;
+}
+
+.h3-name{
+    margin-left: 10px;
+}
+
 .img-container > img{
-    border-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     transition: transform .3s ease;
 
 }
 .img-container{
     cursor: pointer;
     overflow: hidden;
-    border-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 .img-container > img:hover{
     transform: scale(1.1);
@@ -78,14 +90,17 @@
 }
 
 .see-inside-btn{
+    border: none;
     width: 100%;
-    padding: .7rem;
+    padding: 0.7rem;
     background-color: #0d1117;
     color: white;
     font-weight: bold;
     font-size: 16px;
     cursor: pointer;
     transition: background-color .3s ease;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .see-inside-btn:hover{
@@ -97,10 +112,9 @@ dialog{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: none;
+    border-color:#cccc ;
     border-radius: 10px;
-    background-color: #0d1117;
-    color: white;
+    border-width: 3px 0px 3px 3px;
     overflow: visible;
 }
 .dialog-container{
@@ -127,8 +141,8 @@ dialog{
     border-radius: 50%;
     transition: background-color .3s ease;
     position: absolute;
-    top: -10px;
-    left: -6px;
+    top: -15px;
+    left: -14px;
 }
 
 .close-btn:hover{
@@ -231,7 +245,7 @@ dialog{
 .commentDiv:nth-child(odd){
     background-color: #0d1117;
     color: white;
-    border: 3px solid #e6ad1e;
+    border: 3px solid rgb(255 69 103);
     border-radius: 10px;
 }
 .commentDiv:nth-child(even){
