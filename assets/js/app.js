@@ -126,6 +126,7 @@ async function getPosts(){
         commentDivCounter++;
     }
     bindShowAndCloseBtns();
+    bindHoverEffect();
 }
 
 function bindShowAndCloseBtns(){
