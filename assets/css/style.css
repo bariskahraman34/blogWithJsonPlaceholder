@@ -29,14 +29,15 @@
 .search-input{
     padding: .4rem 1rem .3rem 2rem;
     border-radius: 20px;
+    border: 2px solid black;
 }
 .fa-magnifying-glass{
     position: absolute;
-    top: 2px;
+    top: 0.9px;
     border-radius: 50%;
     background-color: #0d1117;
     color: white;
-    padding: 0.3rem;
+    padding: 0.4rem;
 }
 .card-container{
     width: 380px;
@@ -250,4 +251,56 @@ dialog{
 ::-webkit-scrollbar-thumb{
     background: linear-gradient(#ff4568,#ff4568);
     border-radius: 20px;
+}
+
+#copyright{
+    text-align: center;
+    padding: 2rem 0rem 2rem 0rem;
+}
+
+.toggle{
+    width: 60px;
+    height: 30px;
+    border-radius: 10px;
+    display: inline-block;
+    cursor: pointer;
+}
+.toggle-input{
+    display: none;
+}
+.toggle-fill{
+    position: relative;
+    width: 70px;
+    height: 30px;
+    border-radius: 20px;
+    background: linear-gradient(#ff4568,#ff4568);
+}
+
+.toggle-fill::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 30px;
+    width: 30px;
+    background: #ffff;
+    box-shadow: 0 0 10px rgba(0,0,0.25);
+    border-radius: 50%;
+    transition: transform .5s;
+}
+
+.toggle-input:checked ~ .toggle-fill::after{
+    transform: translateX(40px);
+}
+.fa-snowflake{
+    position: absolute;
+    top: 25%;
+    right: 10px;
+    color: white;
+}
+.fa-sun{
+    position: absolute;
+    top: 25%;
+    left: 10px;
+    color: #FCE570;
 }

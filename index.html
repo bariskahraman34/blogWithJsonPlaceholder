@@ -13,10 +13,18 @@
     <div class="container">
         <div class="headings">
             <h2 class="blog-content">#JSON PLACEHOLDER BLOG</h2>
+            <label class="toggle" for="snowSelector">
+                <input class="toggle-input" type="checkbox" id="snowSelector">
+                <div class="toggle-fill">
+                    <i class="fa-regular fa-snowflake"></i>
+                    <i class="fa-solid fa-sun"></i>
+                </div>
+            </label>
             <div class="input-container">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input class="search-input" type="text" placeholder="Search">
             </div>
+
         </div>
         <div class="card-items">
 
@@ -28,7 +36,31 @@
         </div>
     </div>
 
+    <div id="copyright">
+        
+    </div>
+
     <script src="assets/js/app.js"></script>
     <script src="assets/js/search.js"></script>
+    <script src="assets/js/copyright.js"></script>
+    <script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.min.js">
+    </script>
+    <script>
+        const snowSelector = document.querySelector('#snowSelector');
+        snowSelector.setAttribute('checked','checked');
+        let snowflakes = new Snowflakes({
+            color:'red',
+            zIndex:"-1",
+        });
+        snowSelector.addEventListener('click',function(){
+            if(snowSelector.hasAttribute('checked','checked')){
+                snowSelector.removeAttribute('checked','checked');
+                snowflakes.hide();
+            }else{
+                snowSelector.setAttribute('checked','checked');
+                snowflakes.show();
+            }
+        })
+    </script>
 </body>
 </html>
