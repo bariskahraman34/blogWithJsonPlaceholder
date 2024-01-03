@@ -10,9 +10,10 @@ function searchData(searchTerm){
     const cardContainer = document.querySelectorAll('.card-container');
     for (let i = 0 ; i < cardContainer.length ; i++) {
         const title = items[i].innerText.toLowerCase();
+        console.log(title.includes(searchTerm))
         
         if(title.includes(searchTerm)){
-            cardContainer[i].style.display = "block";
+            cardContainer[i].style.display = "flex";
         }else{
             cardContainer[i].style.display = "none";
         }
