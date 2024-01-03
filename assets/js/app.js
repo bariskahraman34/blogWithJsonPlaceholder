@@ -133,6 +133,7 @@ function bindShowAndCloseBtns(){
     const showBtns = document.querySelectorAll('.see-inside-btn');
     const dialogs = document.querySelectorAll('dialog');
     const imgContainer = document.querySelectorAll('.img-container');
+    const titles = document.querySelectorAll('.h3-name');
     const closeBtns = document.querySelectorAll('dialog button');
 
     for (let i = 0 ; i < showBtns.length ; i++) {
@@ -141,6 +142,10 @@ function bindShowAndCloseBtns(){
             dialogs[i].showModal();
         })
         imgContainer[i].addEventListener('click', (e) => {
+            e.preventDefault();
+            dialogs[i].showModal();
+        })
+        titles[i].addEventListener('click', (e) => {
             e.preventDefault();
             dialogs[i].showModal();
         })

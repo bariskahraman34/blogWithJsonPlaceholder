@@ -58,7 +58,14 @@
 }
 
 .h3-name{
-    margin-left: 10px;
+    line-height: 1.25em;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+
+.h3-name:hover{
+    color: #ff4568;
 }
 
 .img-container > img{
@@ -72,6 +79,9 @@
     overflow: hidden;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+}
+.img-container > img{
+    transition: transform .8s;
 }
 .img-container > img:hover{
     transform: scale(1.1);
