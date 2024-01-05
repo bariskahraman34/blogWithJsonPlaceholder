@@ -24,7 +24,7 @@ let itemsPerPage = 9;
 
 async function pagination(){
     const data = await fetchPosts();
-    for(let i = 0 ; i < Math.ceil(data.length/9) ; i++){
+    for(let i = 0 ; i < Math.ceil(data.length/itemsPerPage) ; i++){
         paginationUl.innerHTML += 
         `
         <li id="pagination-${i}" class="paginationLi">${i+1}</li>
